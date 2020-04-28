@@ -3,9 +3,11 @@ function createParkResults (results) {
   return `
     <div>
       <ul>
-        <li>${results.dogPark} ${results.address}</li>
+        <li>
+          <p>${results.dogPark}</p><p>${results.address}</p>
+        </li>
+        <button class='save'>Save</button>
       </ul>
-      <button class="save">Save</button>
     </div>
   `
 }
@@ -15,8 +17,3 @@ function renderParkResults (results) {
   const parksElement = document.querySelector(".results")
   parksElement.innerHTML += results   
 }
-
-// creates HTML component for itinerary
-// const addToItinerary = (result) => {
-//   result.childNodes
-// }
