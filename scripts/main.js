@@ -4,6 +4,15 @@ let searchInputArt = document.getElementById("public-art-input");
 document.getElementById("parks-search").addEventListener("click", event => {
     getAPIParks(searchInput.value)
     .then(parks => {
+        for (let i = 0; i < 3; i++) {
+          renderParkResults(createParkResults(
+            {
+              dogPark: parks[i].park_name, 
+              address: parks[i].mapped_location.human_address
+            }
+          ))
+            console.log(parks[i]) 
+        }
     })
 })
 
@@ -23,6 +32,7 @@ const resultsSection = document.querySelector('.results');
 resultsSection.addEventListener('click', event => {
     if (event.target.className.includes('save')) {
     const savedResult = event.target.parentElement;
-    addToItinerary(savedResult);
+    console.log(savedResult);
+    // addToItinerary(savedResult);
     }
 })

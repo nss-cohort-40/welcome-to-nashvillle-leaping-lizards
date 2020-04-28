@@ -5,8 +5,6 @@ function getAPIParks(searchTerm) {
     .then(response => response.json())
 }
 
-
-
 //LR ACCESS PUBLIC ART COLLECTIONS USING Metro Gov API
 function getAPIpublicArtCollections(searchTerm) {
     return fetch(`https://data.nashville.gov/resource/eviu-nxp6.json`)
