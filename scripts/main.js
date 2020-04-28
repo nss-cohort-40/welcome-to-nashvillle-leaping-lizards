@@ -1,12 +1,8 @@
-let parkSearch = document.getElementById("parks-input")
-console.log("little test to see if linked")
-
-
 let searchInput = document.getElementById("parks-input")
 let searchInputArt = document.getElementById("public-art-input");
 
 document.getElementById("parks-search").addEventListener("click", event => {
-    getAPIParks(parkSearch.value)
+    getAPIParks(searchInput.value)
     .then(parks => {
           renderParkResults(parks) 
         }
@@ -17,6 +13,7 @@ document.getElementById("parks-search").addEventListener("click", event => {
 document.getElementById("public-art-search").addEventListener("click", event => {
     getAPIpublicArtCollections(searchInputArt.value)
     .then(artwork => {
-
+        // console.table(artwork);
+        renderArtResults(artwork);
     })
 })

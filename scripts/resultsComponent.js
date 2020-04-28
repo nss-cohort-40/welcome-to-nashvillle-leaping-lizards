@@ -24,3 +24,28 @@ function renderParkResults (results) {
 }
 
 
+// 
+function createArtResults (results) {
+  return `
+  <div>
+    <ul>
+     <li>${results.artwork}</li>
+    </ul>
+    <p>${results.description}</p>
+  <button type="button" class="save">Save</button>
+  </div>
+  `
+};
+
+//Renders HTML component to the DOM for Public Art by description
+const artElement = document.querySelector(".results")
+function renderArtResults (results) {
+  artElement.innerHTML += `<h2>Art Results</h2>`
+  for (let i = 0; i < 3; i++) {
+    let artValue = createArtResults( {
+      artwork: results[i].artwork,
+      description: results[i].description
+    })
+    artElement.innerHTML += artValue
+  }
+}
