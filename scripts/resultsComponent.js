@@ -26,7 +26,6 @@ function renderParkResults (results) {
       address: obj.address
     })
     parksElement.innerHTML += parkValue
-    console.log(results[i])
   }
 }
 
@@ -35,13 +34,12 @@ function renderParkResults (results) {
 
 function createArtResults (results) {
   return `
-  <div>
-    <ul>
-     <li>${results.artwork}</li>
-     <li>${results.description}</li>
-     </ul>
-   
-  <button type="button" class="save">Save</button>
+    <div>
+      <ul>
+        <li class="artName">${results.artwork}</li>
+        <li class="artDescription">${results.description}</li>
+      </ul>
+    <button type="button" class="save">Save</button>
   </div>
   `
 };
@@ -49,21 +47,47 @@ function createArtResults (results) {
 //Renders HTML component to the DOM for Public Art by description
 const artElement = document.querySelector(".results")
 function renderArtResults (results) {
-  console.log(results,"John")
-
   //Why does this work?
   artElement.innerHTML = ""
   artElement.innerHTML += `<h2>Art Results</h2>`
-  console.log(results);
   for (let i = 0; i < results.length; i++) {
-    console.log(results[i]);
     let artValue = createArtResults( {
       artwork: results[i].artwork,
       description: results[i].description
     })
-    
-    // console.log(artValue, "test");
-
     artElement.innerHTML += artValue
+  }
+}
+
+
+let itineraryHeader = document.getElementById("itinerary-header");
+let itineraryResults = document.getElementById("itinerary-results");
+let n = 0;
+function addToItinerary(resultString, resultClassString) {
+  if (n === 0) {
+    itineraryHeader.innerHTML = `<h2>My Itinerary</h2>`
+    n = 1;
+  }
+  if (resultClassString.includes('park')) {
+    itineraryResults.childNodes.forEach(child => {
+      if (resultClassString.includes('park')) {
+      child.parentNode.removeChild(child);
+      }
+    });
+    let parkLi = document.createElement('li');
+    parkLi.innerHTML += `Park: ${resultString}`
+    parkLi.classList.add(resultClassString)
+    itineraryResults.appendChild(parkLi);
+  }
+  if (resultClassString.includes('art')) {
+    itineraryResults.childNodes.forEach(child => {
+      if (resultClassString.includes('art')) {
+      child.parentNode.removeChild(child);
+      }
+    });
+    let artLi = document.createElement('li');
+    artLi.innerHTML += `Art: ${resultString}`
+    artLi.classList.add(resultClassString)
+    itineraryResults.appendChild(artLi);
   }
 }
