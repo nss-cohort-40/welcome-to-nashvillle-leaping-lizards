@@ -37,8 +37,8 @@ function createArtResults (results) {
       <ul>
         <li class="artName">${results.artwork}</li>
         <li class="artDescription">${results.description}</li>
+        <button type="button" class="save">Save</button>
       </ul>
-    <button type="button" class="save">Save</button>
   </div>
   `
 };
@@ -76,7 +76,7 @@ function addToItinerary(resultString, resultClassString) {
   }
   if (resultClassString.includes('park')) {
     itineraryResults.childNodes.forEach(child => {
-      if (resultClassString.includes('park')) {
+      if (child.className.includes('park')) {
       child.parentNode.removeChild(child);
       }
     });
@@ -87,7 +87,7 @@ function addToItinerary(resultString, resultClassString) {
   }
   if (resultClassString.includes('art')) {
     itineraryResults.childNodes.forEach(child => {
-      if (resultClassString.includes('art')) {
+      if (child.className.includes('art')) {
       child.parentNode.removeChild(child);
       }
     });

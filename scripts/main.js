@@ -33,14 +33,15 @@ resultsSection.addEventListener('click', event => {
         let savedResult = ''
         let resultClass = ''
         for (let i = 0; i < ulChildrenArr.length; i++) {
-            if (ulChildrenArr[i].classList.contains('parkName')) {
+            console.log(ulChildrenArr[i])
+            if (ulChildrenArr[i].className.includes('Name')) {
                 savedResult += ulChildrenArr[i].textContent;
                 resultClass += ulChildrenArr[i].className;
                 }
-            if (ulChildrenArr[i].classList.contains('artName')) {
-                savedResult += ulChildrenArr[i].textContent;
-                resultClass += ulChildrenArr[i].className;
-                }
+            // if (ulChildrenArr[i].classList.contains('artName')) {
+            //     savedResult += ulChildrenArr[i].textContent;
+            //     resultClass += ulChildrenArr[i].className;
+            //     }
         }
         console.log(savedResult)
         console.log(resultClass)
