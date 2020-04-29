@@ -31,7 +31,6 @@ function renderParkResults (results) {
 
 
 // LR Creates HTML component for Art by description 
-
 function createArtResults (results) {
   return `
     <div>
@@ -47,15 +46,22 @@ function createArtResults (results) {
 //Renders HTML component to the DOM for Public Art by description
 const artElement = document.querySelector(".results")
 function renderArtResults (results) {
-  //Why does this work?
+  // console.log("TEST, LOOK AT ME", resutls);
+
+  if (results.length == 0) {
+    artElement.innerHTML = ""
+    artElement.innerHTML += `<h2>Dank Word! Unfortunately, we can't seem to find a match. Please try again!</h2>`
+  } else {
   artElement.innerHTML = ""
   artElement.innerHTML += `<h2>Art Results</h2>`
+  // console.log("TEST, LOOK AT ME", results);
   for (let i = 0; i < results.length; i++) {
     let artValue = createArtResults( {
       artwork: results[i].artwork,
       description: results[i].description
     })
     artElement.innerHTML += artValue
+    }
   }
 }
 
