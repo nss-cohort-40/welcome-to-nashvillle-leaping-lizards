@@ -29,3 +29,41 @@ function renderParkResults (results) {
     console.log(results[i])
   }
 }
+
+
+// LR Creates HTML component for Art by description 
+
+function createArtResults (results) {
+  return `
+  <div>
+    <ul>
+     <li>${results.artwork}</li>
+     <li>${results.description}</li>
+     </ul>
+   
+  <button type="button" class="save">Save</button>
+  </div>
+  `
+};
+
+//Renders HTML component to the DOM for Public Art by description
+const artElement = document.querySelector(".results")
+function renderArtResults (results) {
+  console.log(results,"John")
+
+  //Why does this work?
+  artElement.innerHTML = ""
+  artElement.innerHTML += `<h2>Art Results</h2>`
+  console.log(results);
+  for (let i = 0; i < results.length; i++) {
+    console.log(results[i]);
+    let artValue = createArtResults( {
+      artwork: results[i].artwork,
+      description: results[i].description
+    })
+    
+    // console.log(artValue, "test");
+
+    artElement.innerHTML += artValue
+  }
+}

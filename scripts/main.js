@@ -13,7 +13,7 @@ document.getElementById("parks-search").addEventListener("click", event => {
 document.getElementById("public-art-search").addEventListener("click", event => {
     getAPIpublicArtCollections(searchInputArt.value)
     .then(artwork => {
-
+        renderArtResults(artwork);
     })
 })
 
