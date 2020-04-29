@@ -16,6 +16,7 @@ function createParkResults (results) {
 // renders HTML component to the DOM
 const parksElement = document.querySelector(".results")
 function renderParkResults (results) {
+  parksElement.innerHTML = ''
   parksElement.innerHTML += `<h2>Parks Results</h2>`
   for (let i = 0; i < 3; i++) {
     const text = results[i].mapped_location.human_address;
