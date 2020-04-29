@@ -2,9 +2,10 @@ let searchInput = document.getElementById("parks-input")
 let searchInputArt = document.getElementById("public-art-input");
 
 document.getElementById("parks-search").addEventListener("click", event => {
-    getAPIParks(searchInput.value)
+    let searchValue = regEx(searchInput.value)
+    getAPIParks(searchValue)
     .then(parks => {
-          renderParkResults(parks) 
+        renderParkResults(parks) 
         }
     )
 })
