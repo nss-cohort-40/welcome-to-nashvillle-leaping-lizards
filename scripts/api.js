@@ -1,5 +1,5 @@
 function getAPIParks(searchTerm) {
-    return fetch(`https://data.nashville.gov/resource/74d7-b74t.json?${searchTerm}=Yes`)
+    return fetch(`https://data.nashville.gov/resource/74d7-b74t.json?${searchTerm}`)
     .then(response => response.json())
 }
 
