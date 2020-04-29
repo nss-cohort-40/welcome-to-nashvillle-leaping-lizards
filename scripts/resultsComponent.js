@@ -52,7 +52,7 @@ function renderArtResults (results) {
 
   if (results.length == 0) {
     artElement.innerHTML = ""
-    artElement.innerHTML += `<h2>No Art Results with that word in description</h2>`
+    artElement.innerHTML += `<h2>Dank Word! Unfortunately, we can't seem to find a match. Please try again!</h2>`
   } else {
   artElement.innerHTML = ""
   artElement.innerHTML += `<h2>Art Results</h2>`
