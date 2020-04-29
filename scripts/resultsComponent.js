@@ -52,6 +52,7 @@ function renderArtResults (results) {
   console.log(results,"John")
 
   //Why does this work?
+  artElement.innerHTML = ""
   artElement.innerHTML += `<h2>Art Results</h2>`
   console.log(results);
   for (let i = 0; i < results.length; i++) {
