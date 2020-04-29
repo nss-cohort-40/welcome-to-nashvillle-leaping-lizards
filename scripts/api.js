@@ -8,3 +8,9 @@ function getAPIpublicArtCollections(searchTerm) {
     return fetch(`https://data.nashville.gov/resource/eviu-nxp6.json?$where=description like('%25${searchTerm}%25')`)
     .then(response => response.json());
 }
+
+function getAPIFoods(searchTerm) {
+    return fetch("https:/opentable.herokuapp.com/api/restaurants?city=Nashville")
+    .then(response => response.json())
+    .then(restaurants => console.log(restaurants))
+}
