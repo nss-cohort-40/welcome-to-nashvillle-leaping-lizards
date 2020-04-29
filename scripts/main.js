@@ -35,7 +35,13 @@ resultsSection.addEventListener('click', event => {
                 savedResult += ulChildrenArr[i].textContent;
                 resultClass += ulChildrenArr[i].className;
                 }
+            if (ulChildrenArr[i].classList.contains('artName')) {
+                savedResult += ulChildrenArr[i].textContent;
+                resultClass += ulChildrenArr[i].className;
+                }
         }
+        console.log(savedResult)
+        console.log(resultClass)
         addToItinerary(savedResult, resultClass);
     }
 })
