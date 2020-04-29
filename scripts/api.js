@@ -12,5 +12,4 @@ function getAPIpublicArtCollections(searchTerm) {
 function getAPIFoods(searchTerm) {
     return fetch("https:/opentable.herokuapp.com/api/restaurants?city=Nashville")
     .then(response => response.json())
-    .then(restaurants => console.log(restaurants))
 }

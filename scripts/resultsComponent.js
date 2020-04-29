@@ -91,3 +91,9 @@ function addToItinerary(resultString, resultClassString) {
     itineraryResults.appendChild(artLi);
   }
 }
+
+// RL function to render food results
+const parksElement = document.querySelector(".results")
+function renderFoodResults(food) {
+
+}
