@@ -1,12 +1,8 @@
-let parkSearch = document.getElementById("parks-input")
-console.log("little test to see if linked")
-
-
 let searchInput = document.getElementById("parks-input")
 let searchInputArt = document.getElementById("public-art-input");
 
 document.getElementById("parks-search").addEventListener("click", event => {
-    getAPIParks(parkSearch.value)
+    getAPIParks(searchInput.value)
     .then(parks => {
           renderParkResults(parks) 
         }
@@ -19,4 +15,27 @@ document.getElementById("public-art-search").addEventListener("click", event => 
     .then(artwork => {
 
     })
+})
+
+/*
+Click event for 'save to itinerary' button
+Saves particular result and its classes, and adds it to .itinerary DOM element via addToItinerary()
+Optional: Add or remove arguments in second if condition to change information inserted from results into savedResult variable
+e.g. if (ulChildrenArr[i].classList.contains('parkName') || (ulChildrenArr[i].classList.contains('parkAddress')) 
+*/
+
+const resultsSection = document.querySelector('.results');
+resultsSection.addEventListener('click', event => {
+    if (event.target.className.includes('save')) {
+        const ulChildrenArr = event.target.parentElement.children;
+        let savedResult = ''
+        let resultClass = ''
+        for (let i = 0; i < ulChildrenArr.length; i++) {
+            if (ulChildrenArr[i].classList.contains('parkName')) {
+                savedResult += ulChildrenArr[i].textContent;
+                resultClass += ulChildrenArr[i].className;
+                }
+        }
+        addToItinerary(savedResult, resultClass);
+    }
 })
