@@ -17,15 +17,25 @@ document.getElementById("public-art-search").addEventListener("click", event => 
     })
 })
 
-// click event for 'add to itinerary' button
-// saves particular result and adds it to itinerary DOM element
+/*
+Click event for 'save to itinerary' button
+Saves particular result and its classes, and adds it to .itinerary DOM element via addToItinerary()
+Optional: Add or remove arguments in second if condition to change information inserted from results into savedResult variable
+e.g. if (ulChildrenArr[i].classList.contains('parkName') || (ulChildrenArr[i].classList.contains('parkAddress')) 
+*/
 
 const resultsSection = document.querySelector('.results');
-
 resultsSection.addEventListener('click', event => {
     if (event.target.className.includes('save')) {
-    const savedResult = event.target.parentElement;
-    console.log(savedResult);
-    // addToItinerary(savedResult);
+        const ulChildrenArr = event.target.parentElement.children;
+        let savedResult = ''
+        let resultClass = ''
+        for (let i = 0; i < ulChildrenArr.length; i++) {
+            if (ulChildrenArr[i].classList.contains('parkName')) {
+                savedResult += ulChildrenArr[i].textContent;
+                resultClass += ulChildrenArr[i].className;
+                }
+        }
+        addToItinerary(savedResult, resultClass);
     }
 })
