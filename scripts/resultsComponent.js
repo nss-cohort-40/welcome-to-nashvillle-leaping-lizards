@@ -16,6 +16,7 @@ function createParkResults (results) {
 // renders HTML component to the DOM
 const parksElement = document.querySelector(".results")
 function renderParkResults (results) {
+  concertsElement.innerHTML = ""
   parksElement.innerHTML = ''
   parksElement.innerHTML += `<h2>Parks Results</h2>`
   shuffle(results)
@@ -56,6 +57,7 @@ function shuffle(array) {
 //LR Renders HTML component to the DOM for Public Art by description
 const artElement = document.querySelector(".results")
 function renderArtResults (results) {
+  concertsElement.innerHTML = ""
   if (results.length == 0) {
     artElement.innerHTML = ""
     artElement.innerHTML += `<h2>Dank Word! Unfortunately, we can't seem to find a match. Please try again!</h2>`
