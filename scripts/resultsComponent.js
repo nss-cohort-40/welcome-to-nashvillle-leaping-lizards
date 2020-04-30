@@ -27,7 +27,7 @@ function renderParkResults (results) {
       address: obj.address
     })
     parksElement.innerHTML += parkValue
-    if (i >= 2) {
+    if (i >= 3) {
       return
     }
   }
@@ -138,7 +138,7 @@ function renderFoodResults (restaurant) {
       address: restaurant[i].address
     })
     restaurantElement.innerHTML += foodValue
-    if (i >= 2) {
+    if (i >= 3) {
       return
     }
   }
