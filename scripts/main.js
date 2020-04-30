@@ -7,8 +7,7 @@ document.getElementById("parks-search").addEventListener("click", event => {
     getAPIParks(searchValue)
     .then(parks => {
         renderParkResults(parks) 
-        }
-    )
+    })
 })
 
 // LR function that selects the Public-Art ID and adds eventListener "click"
