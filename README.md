@@ -22,14 +22,16 @@
 
 __For security purposes, do not push up that data to github.__ Note that the .gitignore includes scripts/keys.js. Create that file and add your info to it as an object like so:
 
-3. In the project root, run your dev server of choice (example grate (e.g.) serve or http-server)
-
-      ```
+     
       const app_keys = {
         app_id: "your id",
         app_key: "your key"
       }
-      ```
+    
+
+
+3. In the project root, run your dev server of choice (example grate (e.g.) serve or http-server)
+
 ---
 
 ## Contributors

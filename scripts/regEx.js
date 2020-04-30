@@ -57,5 +57,7 @@ function regEx(value) {
         return `historic_features=Yes`
       } else if (mtn_bike.test(value)){
         return `mountain_bike_trails=Yes`
+      } else {
+        return 1
       }
     }
