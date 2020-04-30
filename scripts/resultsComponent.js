@@ -76,7 +76,7 @@ function addToItinerary(resultString, resultClassString) {
   if (resultClassString.includes('park')) {
     itineraryResults.childNodes.forEach(child => {
       if (child.className.includes('park')) {
-      child.parentNode.removeChild(child);
+      child.parentElement.removeChild(child);
       }
     });
     let parkLi = document.createElement('li');
@@ -87,7 +87,7 @@ function addToItinerary(resultString, resultClassString) {
   if (resultClassString.includes('art')) {
     itineraryResults.childNodes.forEach(child => {
       if (child.className.includes('art')) {
-      child.parentNode.removeChild(child);
+      child.parentElement.removeChild(child);
       }
     });
     let artLi = document.createElement('li');
