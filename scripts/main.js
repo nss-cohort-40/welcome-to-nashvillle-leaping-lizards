@@ -52,7 +52,12 @@ resultsSection.addEventListener('click', event => {
 // RL event listener that uses the getAPIFoods function and sends it to renderFoodsResult
 document.getElementById("restaurants-search").addEventListener("click", event => {
     getAPIFoods(searchInputFood.value)
-    .then(foods => {
-        renderFoodResults(food);
+    .then(obj => {
+        let nashvilleFood = obj.restaurants
+        for (let i = 0; i < nashvilleFood.length; i++) {
+            console.log(nashvilleFood[i].name);
+            
+        }
+        // renderFoodResults(food);
     })
 })
