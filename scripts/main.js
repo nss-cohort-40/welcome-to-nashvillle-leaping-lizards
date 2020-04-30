@@ -33,9 +33,9 @@ resultsSection.addEventListener('click', event => {
         let savedResult = ''
         let resultClass = ''
         for (let i = 0; i < ulChildrenArr.length; i++) {
-            if (ulChildrenArr[i].className.includes('Name')) {
+            if (ulChildrenArr[i].className.includes('name')) {
                 savedResult += ulChildrenArr[i].textContent;
-                resultClass += ulChildrenArr[i].className;
+                resultClass += ulChildrenArr[i].className.split('-')[0];
                 }
         }
         addToItinerary(savedResult, resultClass);

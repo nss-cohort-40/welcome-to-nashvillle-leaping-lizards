@@ -5,8 +5,8 @@ function createParkResults (results) {
   return `
     <div>
       <ul>
-        <li class="parkName">${results.dogPark}</li>
-        <li class="parkAddress">${results.address}</li>
+        <li class="park-name">${results.dogPark}</li>
+        <li class="park-address">${results.address}</li>
         <button class='save'>Save</button>
       </ul>
     </div>
@@ -18,7 +18,6 @@ const parksElement = document.querySelector(".results")
 function renderParkResults (results) {
   parksElement.innerHTML = ''
   parksElement.innerHTML += `<h2>Parks Results</h2>`
-  console.log(results)
   for (let i = 0; i < results.length; i++) {
     const text = results[i].mapped_location.human_address;
     const obj = JSON.parse(text);
@@ -36,8 +35,8 @@ function createArtResults (results) {
   return `
     <div>
       <ul>
-        <li class="artName">${results.artwork}</li>
-        <li class="artDescription">${results.description}</li>
+        <li class="art-name">${results.artwork}</li>
+        <li class="art-description">${results.description}</li>
         <button type="button" class="save">Save</button>
       </ul>
   </div>
@@ -63,6 +62,9 @@ function renderArtResults (results) {
   }
 }
 
+// capitalize first letter in any string
+const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+
 // moves selected results to itinerary
 // maintains itinerary order of park, art, restaurant, music
 
@@ -74,40 +76,12 @@ function addToItinerary(resultString, resultClassString) {
     itineraryHeader.innerHTML = `<h2>My Itinerary</h2>`
     n = 1;
   }
-  if (resultClassString.includes('park')) {
-    itineraryResults.childNodes.forEach(child => {
-      if (child.className.includes('park')) {
-      child.parentElement.removeChild(child);
-      }
+  document.querySelector(`#${resultClassString}-container`).childNodes.forEach(child => {
+    child.parentElement.removeChild(child);
     });
-    let parkLi = document.createElement('li');
-    parkLi.innerHTML += `Park: ${resultString}`
-    parkLi.classList.add(resultClassString)
-    itineraryResults.prepend(parkLi);
-  }
-  if (resultClassString.includes('art')) {
-    itineraryResults.childNodes.forEach(child => {
-      if (child.className.includes('art')) {
-      child.parentElement.removeChild(child);
-      }
-    });
-    let artLi = document.createElement('li');
-    artLi.innerHTML += `Art: ${resultString}`
-    artLi.classList.add(resultClassString)
-    itineraryResults.appendChild(artLi);
-  }
-  // copy and pasted and changed some values to work with restaurants
-  if (resultClassString.includes('restaurant')) {
-    itineraryResults.childNodes.forEach(child => {
-      if (child.className.includes('restaurant')) {
-      child.parentNode.removeChild(child);
-      }
-    });
-    let foodLi = document.createElement('li');
-    foodLi.innerHTML += `Restaurant: ${resultString}`
-    foodLi.classList.add(resultClassString)
-    itineraryResults.appendChild(foodLi);
-  }
+  let resultLi = document.createElement('li');
+  resultLi.innerHTML += capitalizeFirstLetter(`${resultClassString}: ${resultString}`);
+  document.querySelector(`#${resultClassString}-container`).appendChild(resultLi);
 }
 
 // RL function to create HTML component
