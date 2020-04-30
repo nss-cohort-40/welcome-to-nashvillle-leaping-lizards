@@ -30,25 +30,31 @@ document.getElementById("concert-search").addEventListener("click", event => {
 
 function createConcertResults (results) {
   return `
-      <table>
         <tr>
-          <td>ARTIST: ${results.artists}</td>
-          <td>DATE: ${results.date}</td>
-          <td>VENUE: ${results.venue}</td>
+          <td>${results.artists}</td>
+          <td>${results.date}</td>
+          <td>${results.venue}</td>
           <td><button class='save'>Save</button></td>
         </tr>
-      <table>
   `
 };
 
 // ER RENDERS HTML COMPONENT TO THE DOM
-const concertsElement = document.querySelector(".results")
+let concertsElement = document.querySelector(".concerts-table")
 function renderConcertResults (results) {
+  parksElement.innerHTML = `<table class="concerts-table"></table>`
+  let concertsElement = document.querySelector(".concerts-table")
   concertsElement.innerHTML = ""
-  concertsElement.innerHTML += `<h2>Concert Results</h2>`
+  concertsElement.innerHTML += `
+  <h2>Concert Results</h2>
+  <tr>
+  <th>ARTIST</th>
+  <th>DATE</th>
+  <th>VENUE</th>
+  </tr>`
   let event = results._embedded.events
   console.log(event, "Evan")
-  for (let i = 0; i < event.length; i++) {
+  for (let i = 0; i < 10; i++) {
     let concertValue = createConcertResults( {
       artists: event[i].name,
       date: event[i].dates.start.localDate,
@@ -58,3 +64,4 @@ function renderConcertResults (results) {
     concertsElement.innerHTML += concertValue
   }
 }
+
