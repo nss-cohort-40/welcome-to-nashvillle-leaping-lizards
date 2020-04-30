@@ -9,3 +9,4 @@ function getAPIpublicArtCollections(searchTerm) {
     return fetch(`https://data.nashville.gov/resource/eviu-nxp6.json?$where=description like('%25${searchTerm}%25')`)
     .then(response => response.json());
 }
+

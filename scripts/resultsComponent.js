@@ -67,3 +67,4 @@ function renderArtResults (results) {
     artElement.innerHTML += artValue
   }
 }
+
