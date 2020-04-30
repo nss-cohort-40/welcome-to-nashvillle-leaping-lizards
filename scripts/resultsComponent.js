@@ -18,6 +18,7 @@ const parksElement = document.querySelector(".results")
 function renderParkResults (results) {
   parksElement.innerHTML = ''
   parksElement.innerHTML += `<h2>Parks Results</h2>`
+  shuffle(results)
   for (let i = 0; i < results.length; i++) {
     const text = results[i].mapped_location.human_address;
     const obj = JSON.parse(text);
@@ -26,6 +27,9 @@ function renderParkResults (results) {
       address: obj.address
     })
     parksElement.innerHTML += parkValue
+    if (i >= 2) {
+      return
+    }
   }
 }
 
@@ -66,16 +70,6 @@ function renderArtResults (results) {
       artElement.innerHTML += artValue 
     }
   } else {
-<<<<<<< HEAD
-  artElement.innerHTML = ""
-  artElement.innerHTML += `<h2>Art Results</h2>`
-  for (let i = 0; i < results.length; i++) {
-    let artValue = createArtResults( {
-      artwork: results[i].artwork,
-      description: results[i].description
-    })
-    artElement.innerHTML += artValue
-=======
     artElement.innerHTML = ""
     artElement.innerHTML += `<h2>Query too vague. Only three Art Results shown.</h2>`
 
@@ -88,7 +82,6 @@ function renderArtResults (results) {
         description: results[i].description
       })
       artElement.innerHTML += artValue
->>>>>>> master
     }
   }
   }
@@ -119,13 +112,13 @@ function addToItinerary(resultString, resultClassString) {
 const restaurantElement = document.querySelector(".results")
 function createFoodResults (results) {
   return `
-  <div>
-  <ul>
-  <li class="restaurantName">${results.name}</li>
-  <li class="restaurantAddress">${results.address}</li>
-  <button class='save'>Save</button>
-  </ul>
-  </div>
+    <div>
+      <ul>
+        <li class="restaurantName">${results.name}</li>
+        <li class="restaurantAddress">${results.address}</li>
+        <button class='save'>Save</button>
+      </ul>
+    </div>
   `
 }
 
@@ -133,11 +126,15 @@ function createFoodResults (results) {
 function renderFoodResults (restaurant) {
   restaurantElement.innerHTML = ''
   restaurantElement.innerHTML += `<h2>Restaurant Results</h2>`
-  for (let i = 0; i < 3; i++) {
+  shuffle(restaurant)
+  for (let i = 0; i < restaurant.length; i++) {
     let foodValue = createFoodResults( {
       name: restaurant[i].name,
       address: restaurant[i].address
     })
     restaurantElement.innerHTML += foodValue
+    if (i >= 2) {
+      return
+    }
   }
 }

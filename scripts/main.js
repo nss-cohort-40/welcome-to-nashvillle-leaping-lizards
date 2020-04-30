@@ -4,11 +4,13 @@ let searchInputFood = document.getElementById("restaurants-input");
 
 document.getElementById("parks-search").addEventListener("click", event => {
     let searchValue = regEx(searchInput.value)
+    if (searchValue == 1){
+        return parksElement.innerHTML = `<h2>Hmm what was that? Maybe try searching for something else?</h2>`
+    }
     getAPIParks(searchValue)
     .then(parks => {
         renderParkResults(parks) 
-        }
-    )
+    })
 })
 
 // LR function that selects the Public-Art ID and adds eventListener "click"
@@ -59,3 +61,10 @@ document.getElementById("restaurants-search").addEventListener("click", event =>
         restaurantElement.innerHTML = `<h4>Hmm what was that? Maybe search for something else?</h4>`
     });
 })
+
+// RL clear results button
+function clearResults() {
+    document.querySelector(".results").innerHTML = ""
+}
+
+document.getElementById("clear-results").addEventListener("click", clearResults)
