@@ -1,3 +1,50 @@
+![alt text](/Images/NashvilleSkyLine.png)
+# Title: Welcome to Nashville! 
+
+**Description:** We created an app that allows users to build an itinerary for a day trip to Nashville.
+
+**Purpose:** To practice dividing labor within a programing team in order to build an app that has CRUD capabilities. 
+
+
+**To run our marvelous code:**
+1. Clone it down
+    1. Go to your terminal of choice and create a new folder
+    2. Copy the SSH key in git hub
+    3. In your terminal write: git clone ~paste your SSH key here~
+
+2. This project relies on access to four different APIs. 
+    * Parks: [Metro Gov API](https://dev.socrata.com/foundry/data.nashville.gov/xbru-cfzi)
+    * Art: [Metro Gov API](https://dev.socrata.com/foundry/data.nashville.gov/eviu-nxp6)
+    * Food: [OpenTable API](http://opentable.herokuapp.com/)
+    * Music: [Ticketmaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
+
+  You will need to register and obtain an app key and app id. only for __OpenTable__ and __Ticketmaster API__.
+
+__For security purposes, do not push up that data to github.__ Note that the .gitignore includes scripts/keys.js. Create that file and add your info to it as an object like so:
+
+3. In the project root, run your dev server of choice (example grate (e.g.) serve or http-server)
+
+      ```
+      const app_keys = {
+        app_id: "your id",
+        app_key: "your key"
+      }
+      ```
+---
+
+## Contributors
+
+![alt text][logo]
+
+[logo]: /Images/LeapingLizardsLogoOne.png
+
+- Ronald Lankford
+- Zach Nicholson
+- Evan Raynolds
+- Leigha Robinson
+
+---
+
 # Welcome to Nashville: Build an itinerary for a day trip to Music City
 
 In this app users can search for four different things to do/visit in Nashville:
