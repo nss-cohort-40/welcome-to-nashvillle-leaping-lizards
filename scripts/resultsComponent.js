@@ -18,7 +18,8 @@ const parksElement = document.querySelector(".results")
 function renderParkResults (results) {
   parksElement.innerHTML = ''
   parksElement.innerHTML += `<h2>Parks Results</h2>`
-  for (let i = 0; i < 3; i++) {
+  console.log(results)
+  for (let i = 0; i < results.length; i++) {
     const text = results[i].mapped_location.human_address;
     const obj = JSON.parse(text);
     let parkValue = createParkResults( {
@@ -102,4 +103,44 @@ function addToItinerary(resultString, resultClassString) {
     artLi.innerHTML += `Art: ${resultString}`
     artLi.classList.add(resultClassString)
     itineraryResults.appendChild(artLi);
-  }}
+  }
+  // copy and pasted and changed some values to work with restaurants
+  if (resultClassString.includes('restaurant')) {
+    itineraryResults.childNodes.forEach(child => {
+      if (child.className.includes('restaurant')) {
+      child.parentNode.removeChild(child);
+      }
+    });
+    let foodLi = document.createElement('li');
+    foodLi.innerHTML += `Restaurant: ${resultString}`
+    foodLi.classList.add(resultClassString)
+    itineraryResults.appendChild(foodLi);
+  }
+}
+
+// RL function to create HTML component
+const restaurantElement = document.querySelector(".results")
+function createFoodResults (results) {
+  return `
+  <div>
+  <ul>
+  <li class="restaurantName">${results.name}</li>
+  <li class="restaurantAddress">${results.address}</li>
+  <button class='save'>Save</button>
+  </ul>
+  </div>
+  `
+}
+
+// RL function to render food results
+function renderFoodResults (restaurant) {
+  restaurantElement.innerHTML = ''
+  restaurantElement.innerHTML += `<h2>Restaurant Results</h2>`
+  for (let i = 0; i < 3; i++) {
+    let foodValue = createFoodResults( {
+      name: restaurant[i].name,
+      address: restaurant[i].address
+    })
+    restaurantElement.innerHTML += foodValue
+  }
+}

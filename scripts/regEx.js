@@ -10,7 +10,7 @@ function regEx(value) {
       let restrooms = /[rest]{4}/gi;
       let picnic = /[picn]{4}/gi;
       let disc_golf = /[disc]{4}/gi;
-      let skate_park = /[skate]{4}/gi;
+      let skate_park = /[skate]{5}/gi;
       let hiking = /[hiking]{3}/gi;
       let horse = /[horse]{4}/gi;
       let jog = /[jog]{3}|[walk]{4}/gi;
@@ -34,7 +34,7 @@ function regEx(value) {
       } else if (restrooms.test(value)){
         return "restrooms=Yes"
       } else if (picnic.test(value)){
-        return "picnic=Yes"
+        return "picnic_shelters=Yes"
       } else if (basketball.test(value)){
         return `basketball_courts=Yes`
       } else if (disc_golf.test(value)){
