@@ -45,12 +45,12 @@ function createArtResults (results) {
 };
 
 
-//Writing a DRY shuffle array function
+//LR Writing a DRY shuffle array function
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 
-//Renders HTML component to the DOM for Public Art by description
+//LR Renders HTML component to the DOM for Public Art by description
 const artElement = document.querySelector(".results")
 function renderArtResults (results) {
   if (results.length == 0) {
@@ -71,7 +71,7 @@ function renderArtResults (results) {
     artElement.innerHTML += `<h2>Query too vague. Only three Art Results shown.</h2>`
 
     shuffle(results);
-    console.log(results);
+    
 
     for (let i = 0; i < 3; i++) {
       let artValue = createArtResults ( {
