@@ -68,3 +68,10 @@ document.getElementById("restaurants-search").addEventListener("click", event =>
         restaurantElement.innerHTML = `<h4>Hmm what was that? Maybe search for something else?</h4>`
     });
 })
+
+// RL clear results button
+function clearResults() {
+    document.querySelector(".results").innerHTML = ""
+}
+
+document.getElementById("clear-results").addEventListener("click", clearResults)

@@ -18,7 +18,7 @@ const parksElement = document.querySelector(".results")
 function renderParkResults (results) {
   parksElement.innerHTML = ''
   parksElement.innerHTML += `<h2>Parks Results</h2>`
-  console.log(results)
+  shuffle(results)
   for (let i = 0; i < results.length; i++) {
     const text = results[i].mapped_location.human_address;
     const obj = JSON.parse(text);
@@ -27,7 +27,7 @@ function renderParkResults (results) {
       address: obj.address
     })
     parksElement.innerHTML += parkValue
-    if (i >= 3) {
+    if (i >= 2) {
       return
     }
   }
@@ -135,13 +135,13 @@ function addToItinerary(resultString, resultClassString) {
 const restaurantElement = document.querySelector(".results")
 function createFoodResults (results) {
   return `
-  <div>
-  <ul>
-  <li class="restaurantName">${results.name}</li>
-  <li class="restaurantAddress">${results.address}</li>
-  <button class='save'>Save</button>
-  </ul>
-  </div>
+    <div>
+      <ul>
+        <li class="restaurantName">${results.name}</li>
+        <li class="restaurantAddress">${results.address}</li>
+        <button class='save'>Save</button>
+      </ul>
+    </div>
   `
 }
 
@@ -149,13 +149,14 @@ function createFoodResults (results) {
 function renderFoodResults (restaurant) {
   restaurantElement.innerHTML = ''
   restaurantElement.innerHTML += `<h2>Restaurant Results</h2>`
+  shuffle(restaurant)
   for (let i = 0; i < restaurant.length; i++) {
     let foodValue = createFoodResults( {
       name: restaurant[i].name,
       address: restaurant[i].address
     })
     restaurantElement.innerHTML += foodValue
-    if (i >= 3) {
+    if (i >= 2) {
       return
     }
   }
