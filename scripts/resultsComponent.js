@@ -96,6 +96,18 @@ function addToItinerary(resultString, resultClassString) {
     artLi.classList.add(resultClassString)
     itineraryResults.appendChild(artLi);
   }
+  // copy and pasted and changed some values to work with restaurants
+  if (resultClassString.includes('restaurant')) {
+    itineraryResults.childNodes.forEach(child => {
+      if (child.className.includes('restaurant')) {
+      child.parentNode.removeChild(child);
+      }
+    });
+    let foodLi = document.createElement('li');
+    foodLi.innerHTML += `Restaurant: ${resultString}`
+    foodLi.classList.add(resultClassString)
+    itineraryResults.appendChild(foodLi);
+  }
 }
 
 // RL function to render food results
@@ -118,7 +130,7 @@ function renderFoodResults (results) {
   restaurantElement.innerHTML += `<h2>Restaurant Results</h2>`
   for (let i = 0; i < 3; i++) {
     let foodValue = createFoodResults( {
-      name: results[i].park_name,
+      name: results[i].name,
       address: results[i].address
     })
     restaurantElement.innerHTML += foodValue
