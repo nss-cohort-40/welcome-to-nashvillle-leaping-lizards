@@ -125,13 +125,13 @@ function createFoodResults (results) {
   `
 }
 
-function renderFoodResults (results) {
+function renderFoodResults (restaurant) {
   restaurantElement.innerHTML = ''
   restaurantElement.innerHTML += `<h2>Restaurant Results</h2>`
   for (let i = 0; i < 3; i++) {
     let foodValue = createFoodResults( {
-      name: results[i].name,
-      address: results[i].address
+      name: restaurant[i].name,
+      address: restaurant[i].address
     })
     restaurantElement.innerHTML += foodValue
   }

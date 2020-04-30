@@ -56,4 +56,7 @@ document.getElementById("restaurants-search").addEventListener("click", event =>
         let nashvilleFood = foodObj.restaurants
         renderFoodResults(nashvilleFood);
     })
+    .catch(error => {
+        restaurantElement.innerHTML = `<h4>Hmm what was that? Maybe search for something else?</h4>`
+    });
 })
