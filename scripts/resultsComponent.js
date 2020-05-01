@@ -150,9 +150,10 @@ function createFoodResults (results) {
 // RL function to render food results
 function renderFoodResults (restaurant) {
   if (restaurant.length == 0) {
+    return restaurantElement.innerHTML = `<h2>Hmm what was that? Maybe search for something else?</h2>`
+  }
   restaurantElement.innerHTML = ''
   restaurantElement.innerHTML += `<h2>Restaurant Results</h2>`
-  } else {
   shuffle(restaurant)
   for (let i = 0; i < restaurant.length; i++) {
     let foodValue = createFoodResults( {
@@ -164,5 +165,4 @@ function renderFoodResults (restaurant) {
       return
     }
   }
-}
 }
