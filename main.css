@@ -1,22 +1,94 @@
+/*Global Layout Set up */
+* {
+  box-sizing: border-box;
+}
+/* Link styles */
+/* All the Header styleing */
+header {
+  text-align: center;
+  background: url(Images/NashvilleSkyLine.png) no-repeat top center ;
+  background-size: cover;
+  overflow: hidden;
+  padding-top: 60px;
+}
+header {
+  line-height: 1.5;
+}
+header .profile-image {
+  margin-top: 50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+  transition: all .5s;
+}
+header .profile-image:hover {
+  transform: scale(1.2) rotate(180deg);
+}
+
+header h1 {
+  border: rgb(37, 77, 101) solid 2px;
+  background-color: #e2e2e2;
+  color: rgb(37, 77, 101);
+  padding: 10px;
+  border-radius: 5px;
+  display: table;
+  margin: 10px auto;
+}
+
+/* Body styling  */
 body {
-  background-color: whitesmoke; */
-  /* background-image: url(/Images/NashvilleBackground.jpg);
-  background-repeat: no-repeat; */
+  margin: 0;
+  padding: 0;
+  color: #222;
+  background: white;
 }
-
+.article-container {
+  padding-right: 4rem;
+  padding-left: 4rem;
+  color: rgb(37, 77, 101);
+}
+.search h2 {
+  text-align: center; 
+  color: rgb(37, 77, 101);
+  border: rgb(37, 77, 101) solid 1px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px auto;
+  background-color: #e2e2e2;
+}
 fieldset {
+  color: rgb(37, 77, 101);
   background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px auto;
+  border: rgb(37, 77, 101) solid 2px;
+  width: 400px;
+  height: auto;
 }
-
-
+button {
+  color: rgb(37, 77, 101);
+}
 .flex-container {
   display: flex;
   flex-direction: column;
-  border: black solid 1px;
+  
 }
-
-
-
+.results {
+  padding: 10px;
+  background-color: #e2e2e2;
+  border-radius: 5px;
+  margin: 10px auto;
+  border: rgb(37, 77, 101) solid 1px;
+}
+.itinerary {
+  padding: 10px;
+  background-color: #e2e2e2;
+  border-radius: 5px;
+  margin: 10px auto;
+  border: rgb(37, 77, 101) solid 1px;
+}
 th, td {
   padding: 5px;
 }
