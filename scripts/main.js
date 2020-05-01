@@ -31,19 +31,27 @@ document.getElementById("public-art-search").addEventListener("click", event =>
 Click event for 'save to itinerary' button
 Saves particular result and its classes, and adds it to .itinerary DOM element via addToItinerary()
 Optional: Add or remove arguments in second if condition to change information inserted from results into savedResult variable
-e.g. if (ulChildrenArr[i].className.includes('Name') || (ulChildrenArr[i].className.includes('Address')) 
+e.g. If (ulChildrenArr[i].className.includes('name') || (ulChildrenArr[i].className.includes('address')) 
+Unique array and for loop for concerts table
 */
 
 const resultsSection = document.querySelector('.results');
 resultsSection.addEventListener('click', event => {
     if (event.target.className.includes('save')) {
         const ulChildrenArr = event.target.parentElement.children;
+        const ulConcertTableArr = event.target.parentElement.parentElement.children;
         let savedResult = ''
         let resultClass = ''
         for (let i = 0; i < ulChildrenArr.length; i++) {
             if (ulChildrenArr[i].className.includes('name')) {
                 savedResult += ulChildrenArr[i].textContent;
                 resultClass += ulChildrenArr[i].className.split('-')[0];
+                }
+        }
+        for (let i = 0; i < ulConcertTableArr.length; i++) {
+            if (ulConcertTableArr[i].className.includes('name')) {
+                savedResult += ulConcertTableArr[i].textContent;
+                resultClass += ulConcertTableArr[i].className.split('-')[0];
                 }
         }
         addToItinerary(savedResult, resultClass);

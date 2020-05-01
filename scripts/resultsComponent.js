@@ -1,5 +1,4 @@
 // creates HTML component for Park Results
-// ask team about this structure (can format <li> elements to be inline if wanted, but makes more sense to me that each park is an unordered list, and each info item about the park is a list item (with a class))
 
 function createParkResults (results) {
   return `
@@ -88,11 +87,11 @@ function renderArtResults (results) {
   }
   }
 
-// capitalize first letter in any string
+// ZN capitalize first letter in any string
 const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-// moves selected results to itinerary
-// maintains itinerary order of park, art, restaurant, music
+// ZN moves selected results to itinerary
+// ZN maintains itinerary order of park, art, restaurant, concert
 
 let itineraryHeader = document.getElementById("itinerary-header");
 let itineraryResults = document.getElementById("itinerary-results");
@@ -116,8 +115,8 @@ function createFoodResults (results) {
   return `
     <div>
       <ul>
-        <li class="restaurantName">${results.name}</li>
-        <li class="restaurantAddress">${results.address}</li>
+        <li class="restaurant-name">${results.name}</li>
+        <li class="restaurant-address">${results.address}</li>
         <button class='save'>Save</button>
       </ul>
     </div>

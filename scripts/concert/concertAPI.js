@@ -4,9 +4,8 @@ function getAPIConcert (searchTerm) {
     .then(concerts => concerts.json())
   }
 
-
-let searchInputConcert = document.getElementById("concert-input")
 // ER FUNCTION THAT SELECTS CONCERT-SEARCH ID AND ADDS EVENT LISTENER CLICK
+let searchInputConcert = document.getElementById("concert-input")
 document.getElementById("concert-search").addEventListener("click", event => {
     getAPIConcert(searchInputConcert.value)
     .then(concerts => {
@@ -14,26 +13,12 @@ document.getElementById("concert-search").addEventListener("click", event => {
     })
 })
 
-// ER CREATES HTML COMPONENT FOR CONCERTS
-// function createConcertResults (results) {
-//   return `
-//     <div>
-//       <ul>
-//         <li class="concertName">${results.artists}</li>
-//         <li class="concertName">${results.date}</li>
-//         <li class="concertName">${results.venue}</li>
-//         <button class='save'>Save</button>
-//       </ul>
-//     </div>
-//   `
-// };
-
 function createConcertResults (results) {
   return `
         <tr>
-          <td>${results.artists}</td>
-          <td>${results.date}</td>
-          <td>${results.venue}</td>
+          <td class='concert-name'>${results.artists}</td>
+          <td class='concert-date'>${results.date}</td>
+          <td class='concert-venue'>${results.venue}</td>
           <td><button class='save'>Save</button></td>
         </tr>
   `
@@ -53,14 +38,12 @@ function renderConcertResults (results) {
   <th>VENUE</th>
   </tr>`
   let event = results._embedded.events
-  console.log(event, "Evan")
   for (let i = 0; i < 10; i++) {
     let concertValue = createConcertResults( {
       artists: event[i].name,
       date: event[i].dates.start.localDate,
       venue: event[i]._embedded.venues[0].name
     })
-    
     concertsElement.innerHTML += concertValue
   }
 }
