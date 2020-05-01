@@ -4,7 +4,7 @@ function createParkResults (results) {
   return `
     <div>
       <ul>
-        <li class="park-name">${results.dogPark}</li>
+        <li class="park-name">${results.name}</li>
         <li class="park-address">${results.address}</li>
         <button class='save'>Save</button>
       </ul>
@@ -23,7 +23,7 @@ function renderParkResults (results) {
     const text = results[i].mapped_location.human_address;
     const obj = JSON.parse(text);
     let parkValue = createParkResults( {
-      dogPark: results[i].park_name,
+      name: results[i].park_name,
       address: obj.address
     })
     parksElement.innerHTML += parkValue
@@ -41,6 +41,7 @@ function createArtResults (results) {
       <ul>
         <li class="art-name">${results.artwork}</li>
         <li class="art-description">${results.description}</li>
+        <li class="art-more-info"><a href="${results.url}" target="_blank">More Info</a></li>
         <button type="button" class="save">Save</button>
       </ul>
   </div>
@@ -66,7 +67,8 @@ function renderArtResults (results) {
       for (let i = 0; i < 3; i++) {
         let artValue = createArtResults( {
           artwork: results[i].artwork,
-          description: results[i].description
+          description: results[i].description,
+          url: results[i].page_link.url
         })
       artElement.innerHTML += artValue 
     }
@@ -80,7 +82,8 @@ function renderArtResults (results) {
     for (let i = 0; i < 3; i++) {
       let artValue = createArtResults ( {
         artwork: results[i].artwork,
-        description: results[i].description
+        description: results[i].description,
+        url: results[i].page_link.url
       })
       artElement.innerHTML += artValue
     }
