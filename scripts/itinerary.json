@@ -1,5 +1,11 @@
 {
   "itineraries": [
-
+    {
+      "park": "Park: Edwin Warner Park",
+      "art": "Art: Handlebar Moustache",
+      "restaurant": "Restaurant: The Standard at the Smith House",
+      "concert": "Concert: Hatebreed",
+      "id": 1
+    }
   ]
 }
