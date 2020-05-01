@@ -21,8 +21,7 @@ document.getElementById("public-art-search").addEventListener("click", event =>
     })
 })
 
-
-/*
+/* ZN
 Click event for 'save to itinerary' button
 Saves particular result and its classes, and adds it to .itinerary DOM element via addToItinerary()
 Optional: Add or remove arguments in second if condition to change information inserted from results into savedResult variable
@@ -72,5 +71,50 @@ document.getElementById("clear-results").addEventListener("click", clearResults 
 
 // RL clear itinerary button
 document.getElementById("clear-itinerary").addEventListener("click", clearItinerary => {
-    document.querySelector(".itinerary").innerHTML = ""
+    document.querySelector(".itinerary").innerHTML = `<div id="itinerary-header"></div>
+    <div id="itinerary-results">
+      <div id="park-container"></div>
+      <div id="art-container"></div>
+      <div id="restaurant-container"></div>
+      <div id="concert-container"></div>
+      <button id="saveToDB">Save Itinerary</button>
+    </div>
+`
 })
+
+// ZN save to itinerary database button
+
+document.getElementById('saveToDB').addEventListener('click', event => {
+    let park = ''
+    let art = ''
+    let restaurant = ''
+    let concert = ''
+    if (event.target.id.includes('save')) {
+        const childArr = event.target.parentElement.children;
+        for (let i = 0; i < childArr.length; i++) {
+            if (childArr[i].id.includes('park')) {
+                park = childArr[i].firstElementChild.textContent
+            }
+            if (childArr[i].id.includes('art')) {
+                art = childArr[i].firstElementChild.textContent
+            }
+            if (childArr[i].id.includes('restaurant')) {
+                restaurant = childArr[i].firstElementChild.textContent
+            }
+            if (childArr[i].id.includes('concert')) {
+                concert = childArr[i].firstElementChild.textContent
+            }
+        }
+        create(saveItineraryToDatabase(park, art, restaurant, concert));
+    }
+})
+
+const saveItineraryToDatabase = (park, art, restaurant, concert) => {
+    let itineraryObject = {
+        park: park,
+        art: art,
+        restaurant: restaurant,
+        concert: concert
+    }
+    return itineraryObject;
+}

@@ -14,3 +14,15 @@ function getAPIFoods(searchTerm) {
     return fetch(`https:/opentable.herokuapp.com/api/restaurants?city=Nashville&name=${searchTerm}`)
     .then(response => response.json())
 }
+
+function create(data) {
+    let options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }
+    return fetch('http://localhost:3000/itineraries', options)
+      .then((response) => response.json)
+  }
