@@ -25,14 +25,16 @@
         <button type="button" id="restaurants-search">Search</button>
         <input type="text" id="concert-input" placeholder="concerts by genre">
         <button type="button" id="concert-search">Search</button>
-        <button id="clear-results">Clear Results</button>
       </fieldset>
+      <button class="next">Go to results</button>
     </section>
-
+    
     <section class="results">
       <table class="concerts-table">
-        
       </table>
+      <button id="clear-results">Clear Results</button>
+      <button class="next">Go back to search</button>
+      <button class="next">Go to itinerary</button>
     </section>
     
     <section class="itinerary">
@@ -43,10 +45,12 @@
         <div id="restaurant-container"></div>
         <div id="concert-container"></div>
       </div>
+      <button class="next">Go back to search</button>
+      <button class="next">Go back to results</button>
     </section>
     
   </article>
-
+  
   <script src="scripts/regEx.js"></script>
   <script src="scripts/api.js"></script>
   <script src="scripts/main.js"></script>
