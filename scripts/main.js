@@ -15,16 +15,11 @@ document.getElementById("parks-search").addEventListener("click", event => {
 
 // LR function that selects the Public-Art ID and adds eventListener "click"
 document.getElementById("public-art-search").addEventListener("click", event =>
- { if (searchInputArt.value == "" ) {
-        artElement.innerHTML = ""
-    } else {
-    getAPIpublicArtCollections(searchInputArt.value)
+ {  getAPIpublicArtCollections(searchInputArt.value)
     .then(artwork => {
-        renderArtResults(artwork);}
-        )
-        }
-    }
-)
+        renderArtResults(artwork); 
+    })
+})
 
 /* ZN
 Click event for 'save to itinerary' button

@@ -9,24 +9,38 @@
 <body>
   
   <header>
+    <img src="Images/flag.jpg" alt="picture of Nashville at sunset" class="profile-image">
     <h1>Welcome To Nashville</h1>
   </header>
 
-  <article>
+  <article class="article-container">
 
     <section class="search">
-      <h2>Search for stuff to do today</h2>
+      <h2>Search for stuff to do today!</h2>
+      <h2>Not sure of what to search for? Click search button next to empty search bar for randomized suggestions.</h2>
       <fieldset>
-        <input type="text" id="parks-input" placeholder="parks by feature">
-        <button type="button" id="parks-search">Search</button>
-        <input type="text" id="public-art-input" placeholder="public art by description">
-        <button type="submit" id="public-art-search">Search</button>
-        <input type="text" id="restaurants-input" placeholder="restaurants in Nashville"> 
-        <button type="button" id="restaurants-search">Search</button>
-        <input type="text" id="concert-input" placeholder="concerts by genre">
-        <button type="button" id="concert-search">Search</button>
-        <button id="clear-results">Clear Results</button>
-        <button id="clear-itinerary">Clear Itinerary</button>
+          <div class="flex-container">
+            <div>
+              <input type="text" id="parks-input" placeholder="parks by feature">
+              <button type="button" id="parks-search">Search</button>
+            </div>
+            <div>
+              <input type="text" id="public-art-input" placeholder="public art by description">
+              <button type="submit" id="public-art-search">Search</button>
+            </div>
+            <div>
+              <input type="text" id="restaurants-input" placeholder="restaurants in Nashville">
+              <button type="button" id="restaurants-search">Search</button>
+            </div>
+            <div>
+              <input type="text" id="concert-input" placeholder="concerts by genre">
+              <button type="button" id="concert-search">Search</button>
+            </div>
+            <div>
+              <button id="clear-results">Clear Results</button>
+              <button id="clear-itinerary">Clear Itinerary</button>
+            </div>
+          </div>
       </fieldset>
     </section>
     
