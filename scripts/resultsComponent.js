@@ -99,7 +99,8 @@ const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + strin
 let itineraryHeader = document.getElementById("itinerary-header");
 let itineraryResults = document.getElementById("itinerary-results");
 function addToItinerary(resultString, resultClassString) {
-  if (itineraryHeader.innerHTML == '') {
+  console.log(itineraryHeader.innerHTML)
+  if (itineraryHeader.textContent == '') {
     itineraryHeader.innerHTML = `<h2>My Itinerary</h2>`
   }        
   document.querySelector(`#${resultClassString}-container`).childNodes.forEach(child => {
