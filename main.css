@@ -1,3 +1,22 @@
+body {
+  background-color: whitesmoke; */
+  /* background-image: url(/Images/NashvilleBackground.jpg);
+  background-repeat: no-repeat; */
+}
+
+fieldset {
+  background-color: white;
+}
+
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  border: black solid 1px;
+}
+
+
+
 th, td {
   padding: 5px;
 }
