@@ -71,8 +71,11 @@ document.getElementById("restaurants-search").addEventListener("click", event =>
 })
 
 // RL clear results button
-function clearResults() {
+document.getElementById("clear-results").addEventListener("click", clearResults => {
     document.querySelector(".results").innerHTML = ""
-}
+})
 
-document.getElementById("clear-results").addEventListener("click", clearResults)
+// RL clear itinerary button
+document.getElementById("clear-itinerary").addEventListener("click", clearItinerary => {
+    document.querySelector(".itinerary").innerHTML = ""
+})
