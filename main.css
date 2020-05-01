@@ -92,3 +92,8 @@ button {
 th, td {
   padding: 5px;
 }
+
+.disabled {
+  background-color: white;
+  border: white
+}

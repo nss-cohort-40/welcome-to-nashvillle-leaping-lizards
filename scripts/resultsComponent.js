@@ -6,7 +6,7 @@ function createParkResults (results) {
       <ul>
         <li class="park-name">${results.name}</li>
         <li class="park-address">${results.address}</li>
-        <button class='save'>Save</button>
+        <button class='save' id="save-button">Save</button>
       </ul>
     </div>
   `
@@ -42,7 +42,7 @@ function createArtResults (results) {
         <li class="art-name">${results.artwork}</li>
         <li class="art-description">${results.description}</li>
         <li class="art-more-info"><a href="${results.url}" target="_blank">More Info</a></li>
-        <button type="button" class="save">Save</button>
+        <button type="button" class="save" id="save-button">Save</button>
       </ul>
   </div>
   `
@@ -119,7 +119,7 @@ function createFoodResults (results) {
       <ul>
         <li class="restaurant-name">${results.name}</li>
         <li class="restaurant-address">${results.address}</li>
-        <button class='save'>Save</button>
+        <button class='save' id="save-button">Save</button>
       </ul>
     </div>
   `
