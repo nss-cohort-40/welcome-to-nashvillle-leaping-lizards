@@ -19,7 +19,7 @@ function createConcertResults (results) {
           <td class='concert-name'>${results.artists}</td>
           <td class='concert-date'>${results.date}</td>
           <td class='concert-venue'>${results.venue}</td>
-          <td><button class='save'>Save</button></td>
+          <td><button class='save' id="save-button">Save</button></td>
         </tr>
   `
 };
